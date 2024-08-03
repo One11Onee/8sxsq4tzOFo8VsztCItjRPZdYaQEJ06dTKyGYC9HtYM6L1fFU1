@@ -1,0 +1,96 @@
+/* styles.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+    user-select: none; /* Prevent text selection on the whole page */
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+ul, #menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.folder {
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007bff; /* Blue color for the main folder */
+    border-radius: 12px; /* Rounded corners */
+    padding: 15px 25px; /* Padding for a more spacious look */
+    margin: 0 auto 20px; /* Centered horizontally with margin below */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for a modern look */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
+    width: 300px; /* Fixed width for consistency */
+    text-align: center; /* Center text in the folder */
+    user-select: none; /* Prevent text selection in folder */
+}
+
+.folder:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    display: block;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #ffffff;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for links */
+}
+
+a:hover {
+    background-color: #e7f0ff;
+    color: #0056b3;
+}
+
+.nested {
+    display: none; /* Hidden by default */
+    overflow: hidden;
+    padding-left: 20px;
+    margin-left: 0;
+}
+
+.nested.show {
+    display: block; /* Show the nested items */
+}
+
+.nested li {
+    margin-bottom: 12px; /* Gap between sub-items */
+}
+
+.nested > li:first-child {
+    margin-top: 20px; /* Gap between the first subfolder and the parent folder */
+}
+
+.item-gap {
+    margin-bottom: 40px; /* Gap between main items */
+}
+
+/* Animation for expanding and collapsing */
+.nested {
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+}
+
+.nested.show {
+    opacity: 1;
+    max-height: 500px; /* Adjust based on content */
+    padding: 0 20px; /* Padding when expanded */
+}
