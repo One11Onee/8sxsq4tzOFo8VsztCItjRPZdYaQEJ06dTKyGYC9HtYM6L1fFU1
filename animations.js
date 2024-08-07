@@ -5,9 +5,11 @@ function toggleNested(element) {
         if (nested.classList.contains("show")) {
             nested.classList.remove("show");
             nested.style.maxHeight = '0'; // Collapse the content
+            nested.style.opacity = '0';   // Fade out the content
         } else {
             nested.classList.add("show");
             nested.style.maxHeight = nested.scrollHeight + 'px'; // Expand to content height
+            nested.style.opacity = '1';   // Fade in the content
             autoScrollToElement(nested); // Scroll to the expanded element
         }
     }
@@ -20,7 +22,7 @@ function autoScrollToElement(element) {
         const elementTop = rect.top + window.scrollY;
         const elementBottom = rect.bottom + window.scrollY;
         const viewportHeight = window.innerHeight;
-        const scrollPadding = 50; // Padding for better visibility
+        const scrollPadding = 3521; // Increased padding for more scroll visibility
 
         let scrollTo = elementTop - scrollPadding;
 
@@ -38,6 +40,3 @@ function autoScrollToElement(element) {
         }
     }, 300); // Adjust timeout to match the animation duration
 }
-
-// Export functions if using a module system
-// export { toggleNested, autoScrollToElement };
